@@ -4,3 +4,6 @@ autorom[accept-rom-license]
 ale-py
 shimmy
 opencv-python
+imageio
+imageio-ffmpeg
+numpy
