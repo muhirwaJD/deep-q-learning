@@ -17,7 +17,12 @@ How Reinforcement Learning works (simple version):
 """
 
 import os
+import ale_py
 import gymnasium as gym
+
+# Register ALE Atari environments with Gymnasium
+gym.register_envs(ale_py)
+
 from stable_baselines3 import DQN
 from stable_baselines3.common.atari_wrappers import AtariWrapper
 from stable_baselines3.common.vec_env import VecFrameStack, DummyVecEnv

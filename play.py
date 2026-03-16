@@ -11,8 +11,13 @@ What happens here:
      highest Q-value (no more random exploration, just using what it learned)
 """
 
+import ale_py
 import gymnasium as gym
 import numpy as np
+
+# Register ALE Atari environments with Gymnasium
+gym.register_envs(ale_py)
+
 from stable_baselines3 import DQN
 from stable_baselines3.common.atari_wrappers import AtariWrapper
 from stable_baselines3.common.vec_env import VecFrameStack, DummyVecEnv
