@@ -133,7 +133,7 @@ def create_agent(env):
         learning_starts=HYPERPARAMS["learning_starts"],
         train_freq=HYPERPARAMS["train_freq"],
         target_update_interval=HYPERPARAMS["target_update_interval"],
-        optimize_memory_usage=True,  # Saves RAM (important on Kaggle)
+        optimize_memory_usage=False, # FIXED: Set to False to avoid ValueError with handle_timeout_termination
         verbose=1,                   # Print training progress to screen
         tensorboard_log="./logs/",   # Save training curves (optional)
     )
