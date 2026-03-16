@@ -68,28 +68,91 @@ python play.py
 
 > **Pong scoring**: +21 = perfect win, 0 = even match, -21 = total loss
 
-Each group member experimented with 10 different hyperparameter configurations. The following table documents the results:
+Each group member experimented with **10 different hyperparameter configurations** (40 experiments total).
 
-### Member: <!-- TODO: Replace with your name -->
+---
+
+### Member 1: <!-- TODO: Replace with name -->
 
 | # | lr | gamma | batch | eps_start | eps_end | eps_frac | Mean Reward | Notes |
 |---|-----|-------|-------|-----------|---------|----------|-------------|-------|
-| 1 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Baseline configuration |
-| 2 | 1e-3 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Higher LR — tests learning speed |
-| 3 | 5e-5 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Lower LR — tests stability |
-| 4 | 1e-4 | 0.95 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Lower gamma — less future focus |
-| 5 | 1e-4 | 0.99 | 64 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Larger batch — more stable updates |
-| 6 | 1e-4 | 0.99 | 16 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Smaller batch — noisier updates |
-| 7 | 1e-4 | 0.99 | 32 | 1.0 | 0.01 | 0.10 | <!-- TODO --> | Less final exploration |
+| 1 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Baseline |
+| 2 | 1e-3 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Higher LR |
+| 3 | 5e-5 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Lower LR |
+| 4 | 1e-4 | 0.95 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Lower gamma |
+| 5 | 1e-4 | 0.99 | 64 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Larger batch |
+| 6 | 1e-4 | 0.99 | 16 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Smaller batch |
+| 7 | 1e-4 | 0.99 | 32 | 1.0 | 0.01 | 0.10 | <!-- TODO --> | Less exploration |
 | 8 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.30 | <!-- TODO --> | More exploration time |
 | 9 | 1e-4 | 0.90 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Short-sighted agent |
-| 10 | 2e-4 | 0.99 | 64 | 1.0 | 0.02 | 0.15 | <!-- TODO --> | Combined tuning |
+| 10 | 2e-4 | 0.99 | 64 | 1.0 | 0.02 | 0.15 | <!-- TODO --> | Best combo |
 
-### Hyperparameter Tuning Discussion
+**Key findings**: <!-- TODO: 2-3 sentences on what worked best and worst -->
 
-<!-- TODO: Fill this in after running experiments -->
+---
 
-**Learning Rate (`lr`)**: 
+### Member 2: <!-- TODO: Replace with name -->
+
+| # | lr | gamma | batch | eps_start | eps_end | eps_frac | Mean Reward | Notes |
+|---|-----|-------|-------|-----------|---------|----------|-------------|-------|
+| 1 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Baseline |
+| 2 | 5e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Medium-high LR |
+| 3 | 1e-5 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Very low LR |
+| 4 | 1e-4 | 0.999 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Higher gamma |
+| 5 | 1e-4 | 0.99 | 128 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Very large batch |
+| 6 | 1e-4 | 0.99 | 32 | 1.0 | 0.10 | 0.10 | <!-- TODO --> | More final exploration |
+| 7 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.05 | <!-- TODO --> | Quick exploration |
+| 8 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.50 | <!-- TODO --> | Long exploration |
+| 9 | 5e-4 | 0.95 | 64 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Aggressive combo |
+| 10 | 1e-4 | 0.99 | 32 | 1.0 | 0.02 | 0.20 | <!-- TODO --> | Balanced combo |
+
+**Key findings**: <!-- TODO: 2-3 sentences on what worked best and worst -->
+
+---
+
+### Member 3: <!-- TODO: Replace with name -->
+
+| # | lr | gamma | batch | eps_start | eps_end | eps_frac | Mean Reward | Notes |
+|---|-----|-------|-------|-----------|---------|----------|-------------|-------|
+| 1 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Baseline |
+| 2 | 2e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Slightly higher LR |
+| 3 | 1e-4 | 0.98 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Slightly lower gamma |
+| 4 | 1e-4 | 0.99 | 48 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Medium batch |
+| 5 | 1e-4 | 0.99 | 32 | 1.0 | 0.03 | 0.10 | <!-- TODO --> | Low final exploration |
+| 6 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.15 | <!-- TODO --> | Medium exploration time |
+| 7 | 3e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Higher LR test |
+| 8 | 1e-4 | 0.93 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Mid-low gamma |
+| 9 | 1e-4 | 0.99 | 16 | 1.0 | 0.02 | 0.20 | <!-- TODO --> | Small batch + long explore |
+| 10 | 2e-4 | 0.98 | 48 | 1.0 | 0.03 | 0.15 | <!-- TODO --> | Best combo |
+
+**Key findings**: <!-- TODO: 2-3 sentences on what worked best and worst -->
+
+---
+
+### Member 4: <!-- TODO: Replace with name -->
+
+| # | lr | gamma | batch | eps_start | eps_end | eps_frac | Mean Reward | Notes |
+|---|-----|-------|-------|-----------|---------|----------|-------------|-------|
+| 1 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Baseline |
+| 2 | 7e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | High LR |
+| 3 | 1e-4 | 0.85 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Very low gamma |
+| 4 | 1e-4 | 0.99 | 8 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Very small batch |
+| 5 | 1e-4 | 0.99 | 32 | 1.0 | 0.08 | 0.10 | <!-- TODO --> | Higher final epsilon |
+| 6 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.40 | <!-- TODO --> | Very long exploration |
+| 7 | 5e-5 | 0.95 | 64 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Conservative combo |
+| 8 | 1e-3 | 0.99 | 16 | 1.0 | 0.01 | 0.10 | <!-- TODO --> | Aggressive LR + small batch |
+| 9 | 1e-4 | 1.00 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | No discounting |
+| 10 | 2e-4 | 0.97 | 32 | 1.0 | 0.03 | 0.20 | <!-- TODO --> | Best combo |
+
+**Key findings**: <!-- TODO: 2-3 sentences on what worked best and worst -->
+
+---
+
+### Overall Hyperparameter Tuning Discussion
+
+<!-- TODO: Fill this in after ALL members complete their experiments -->
+
+**Learning Rate (`lr`)**:
 - Higher learning rates (e.g., 1e-3) led to ___. Lower learning rates (e.g., 5e-5) led to ___.
 - The best learning rate was ___ because ___.
 
@@ -98,15 +161,15 @@ Each group member experimented with 10 different hyperparameter configurations. 
 - This makes sense because in Pong, future rewards (scoring points) ___.
 
 **Batch Size**:
-- Larger batches (64) resulted in ___, while smaller batches (16) ___.
+- Larger batches (64+) resulted in ___, while smaller batches (16) ___.
 - The optimal batch size was ___ because ___.
 
 **Exploration (Epsilon)**:
-- More exploration time (eps_frac=0.30) led to ___.
+- More exploration time (eps_frac=0.30+) led to ___.
 - Less final exploration (eps_end=0.01) caused ___.
 - The balance between exploration and exploitation ___.
 
-**Best Configuration**: Experiment #___ performed best with a mean reward of ___ because ___.
+**Best Overall Configuration**: Experiment #___ by ___ performed best with a mean reward of ___ because ___.
 
 ---
 
@@ -126,7 +189,7 @@ Each group member experimented with 10 different hyperparameter configurations. 
 ## Gameplay Demo
 
 <!-- TODO: Replace with your actual gameplay GIF after training -->
-<!-- Run record_gif("gameplay.gif") in play.py or use the Kaggle notebook Step 8 -->
+<!-- Run play.py after placing dqn_model.zip in ./models/ — it auto-generates gameplay.gif -->
 ![Agent playing Pong](gameplay.gif)
 
 ---
@@ -136,6 +199,8 @@ Each group member experimented with 10 different hyperparameter configurations. 
 <!-- TODO: Fill in your group member details -->
 | Member | Contribution |
 |--------|-------------|
-| Member 1 | Hyperparameter experiments 1-10, ___ |
-| Member 2 | Hyperparameter experiments 1-10, ___ |
-| Member 3 | Hyperparameter experiments 1-10, ___ |
+| <!-- name --> | Experiments 1-10, ___ |
+| <!-- name --> | Experiments 1-10, ___ |
+| <!-- name --> | Experiments 1-10, ___ |
+| <!-- name --> | Experiments 1-10, ___ |
+
