@@ -28,9 +28,10 @@ MODEL_PATH = "./models/dqn_model"
 # How many episodes to play
 NUM_EPISODES = 5
 
-# Set to True to show the game window on screen
-# Note: On Kaggle/headless servers, set this to False
-RENDER = False  # Change to True if running on your local PC
+# Set to True to show the game window on your screen (local PC with display)
+# Set to False on headless servers (Kaggle, WSL without display, SSH, etc.)
+# TIP: If you get a display error, set this to False
+RENDER = False
 
 
 # ─────────────────────────────────────────────
@@ -175,5 +176,6 @@ def record_gif(output_path="gameplay.gif", num_steps=500):
 if __name__ == "__main__":
     play()
 
-    # Uncomment the line below to also save a GIF for your README:
-    # record_gif("gameplay.gif")
+    # Save a gameplay GIF for your README submission
+    print("\n📹 Now recording gameplay GIF for README...")
+    record_gif("gameplay.gif")
