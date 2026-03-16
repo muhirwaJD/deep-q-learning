@@ -1,0 +1,6 @@
+stable-baselines3[extra]
+gymnasium[atari]
+autorom[accept-rom-license]
+ale-py
+shimmy
+opencv-python
