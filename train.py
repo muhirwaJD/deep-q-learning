@@ -205,26 +205,13 @@ def create_agent(env, policy: str, hyperparams: Dict[str, Any]):
 # STEP 4: Train the Agent
 # ─────────────────────────────────────────────
 def _append_results_row(row: Dict[str, Any], csv_path: str) -> None:
-    """Append one row to CSV. Safe for parallel runs (uses file lock on Unix)."""
     os.makedirs(os.path.dirname(csv_path), exist_ok=True)
     exists = os.path.exists(csv_path)
     with open(csv_path, "a", newline="", encoding="utf-8") as f:
-        try:
-            import fcntl
-            fcntl.flock(f.fileno(), fcntl.LOCK_EX)
-        except (ImportError, OSError):
-            pass  # Windows or no flock; single-writer still usually ok
-        try:
-            writer = csv.DictWriter(f, fieldnames=list(row.keys()))
-            if not exists:
-                writer.writeheader()
-            writer.writerow(row)
-        finally:
-            try:
-                import fcntl
-                fcntl.flock(f.fileno(), fcntl.LOCK_UN)
-            except (ImportError, OSError):
-                pass
+        writer = csv.DictWriter(f, fieldnames=list(row.keys()))
+        if not exists:
+            writer.writeheader()
+        writer.writerow(row)
 
 
 def _evaluate_agent(model: DQN, eval_env, n_eval_episodes: int) -> Tuple[float, float]:
