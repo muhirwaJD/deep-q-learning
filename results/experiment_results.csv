@@ -1,0 +1,5 @@
+timestamp_utc,experiment,policy,total_timesteps,mean_reward,mean_episode_length,learning_rate,gamma,batch_size,exploration_fraction,exploration_final_eps,buffer_size,learning_starts,train_freq,target_update_interval
+2026-03-17T11:09:06Z,1,CnnPolicy,1000000,-8.399999618530273,1020.8,0.0001,0.99,32,0.1,0.05,100000,10000,4,1000
+2026-03-17T15:02:06Z,2,CnnPolicy,1000000,-21.0,184.2,0.0005,0.99,32,0.1,0.05,100000,10000,4,1000
+2026-03-17T18:32:17Z,3,CnnPolicy,1000000,-20.600000381469727,236.6,1e-05,0.99,32,0.1,0.05,100000,10000,4,1000
+2026-03-17T21:14:55Z,4,CnnPolicy,1000000,-16.600000381469727,593.2,0.0001,0.999,32,0.1,0.05,100000,10000,4,1000
