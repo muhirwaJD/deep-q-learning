@@ -76,10 +76,10 @@ python play.py
 
 | Policy | Description | Performance on Pong |
 |--------|-------------|---------------------|
-| **CnnPolicy** | Looks at raw game pixels using convolutional layers | ✅ Much better — designed for visual input |
-| **MlpPolicy** | Uses flat/flattened input | ❌ Worse — not suited for image data |
+| **CnnPolicy** | Looks at raw game pixels using convolutional layers | Mean reward: **-8.4** and **-9.6** (1,000,000 steps) |
+| **MlpPolicy** | Uses flat/flattened input | Mean reward: **-21.0** (1,000,000 steps) |
 
-**Conclusion**: For Atari games (visual input), **CnnPolicy** is the right choice. The convolutional layers detect spatial patterns like ball position and paddle location from raw pixels, which an MLP cannot do efficiently due to the lack of spatial feature extraction.
+**Conclusion**: With the same training budget (1,000,000 steps), **CnnPolicy** clearly outperformed **MlpPolicy** on Pong. This is expected because CNN extracts spatial features (ball and paddle positions) from image observations, while MLP on flattened pixels loses important spatial structure.
 
 ---
 
@@ -114,16 +114,16 @@ Each group member experimented with **10 different hyperparameter configurations
 
 | # | lr | gamma | batch | eps_start | eps_end | eps_frac | Mean Reward | Notes |
 |---|-----|-------|-------|-----------|---------|----------|-------------|-------|
-| 1 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Baseline |
-| 2 | 5e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Medium-high LR |
-| 3 | 1e-5 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Very low LR |
-| 4 | 1e-4 | 0.999 | 32 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Higher gamma |
-| 5 | 1e-4 | 0.99 | 128 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Very large batch |
-| 6 | 1e-4 | 0.99 | 32 | 1.0 | 0.10 | 0.10 | <!-- TODO --> | More final exploration |
-| 7 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.05 | <!-- TODO --> | Quick exploration |
-| 8 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.50 | <!-- TODO --> | Long exploration |
-| 9 | 5e-4 | 0.95 | 64 | 1.0 | 0.05 | 0.10 | <!-- TODO --> | Aggressive combo |
-| 10 | 1e-4 | 0.99 | 32 | 1.0 | 0.02 | 0.20 | <!-- TODO --> | Balanced combo |
+| 1 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | -8.4 | Baseline |
+| 2 | 5e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | -21.0 | Medium-high LR |
+| 3 | 1e-5 | 0.99 | 32 | 1.0 | 0.05 | 0.10 | -20.6 | Very low LR |
+| 4 | 1e-4 | 0.999 | 32 | 1.0 | 0.05 | 0.10 | -16.6 | Higher gamma |
+| 5 | 1e-4 | 0.99 | 128 | 1.0 | 0.05 | 0.10 | -4.2 | Very large batch |
+| 6 | 1e-4 | 0.99 | 32 | 1.0 | 0.10 | 0.10 | -16.0 | More final exploration |
+| 7 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.05 | -11.6 | Quick exploration |
+| 8 | 1e-4 | 0.99 | 32 | 1.0 | 0.05 | 0.50 | -9.2 | Long exploration |
+| 9 | 5e-4 | 0.95 | 64 | 1.0 | 0.05 | 0.10 | -2.6 | Aggressive combo |
+| 10 | 1e-4 | 0.99 | 32 | 1.0 | 0.02 | 0.20 | -10.0 | Balanced combo |
 
 **Where to get Mean Reward / Episode Length (for your table + presentation)**:
 - After each `train.py` run, results are appended to `results/experiment_results.csv` (mean reward + mean episode length from greedy evaluation).
@@ -136,7 +136,7 @@ Each group member experimented with **10 different hyperparameter configurations
 - **Exploration/exploitation**: did it keep “random-looking” behavior too long or stop exploring too early?
 - **Policy behavior**: tracking the ball, positioning early, consistent returns, fewer misses, etc.
 
-**Key findings (Member 2, 2–3 sentences)**: <!-- TODO: summarize your best vs worst experiment and why -->
+**Key findings (Member 2, 2–3 sentences)**: The best result was **Experiment 9** (mean reward **-2.6**), showing that `learning_rate=5e-4`, `gamma=0.95`, and `batch_size=64` performed best in this set. The worst results were **Experiments 2 and 3** (mean rewards **-21.0** and **-20.6**), indicating unstable or ineffective learning with the tested learning-rate extremes. Larger batch and longer exploration settings (Experiments 5 and 8) improved stability and reward compared to the baseline.
 
 ---
 
