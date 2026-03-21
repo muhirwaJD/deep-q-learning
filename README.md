@@ -125,12 +125,12 @@ Each group member experimented with **10 different hyperparameter configurations
 | 9 | 5e-4 | 0.95 | 64 | 1.0 | 0.05 | 0.10 | -2.6 | Aggressive combo |
 | 10 | 1e-4 | 0.99 | 32 | 1.0 | 0.02 | 0.20 | -10.0 | Balanced combo |
 
-**Where to get Mean Reward / Episode Length (for your table + presentation)**:
+
 - After each `train.py` run, results are appended to `results/experiment_results.csv` (mean reward + mean episode length from greedy evaluation).
 - Reward trends + episode length curves during training are logged in `logs/experiment_X/train_monitor.csv` (and evaluation episodes in `logs/experiment_X/eval_monitor.csv`).
 - If you used TensorBoard (`logs/`), you can also cite learning curves from there.
 
-**Noted behavior (what to write in the Notes column)**:
+**Noted behavior:
 - **Learning stability**: did reward improve smoothly, oscillate, or collapse?
 - **Learning speed**: did it reach competitive play earlier/later (fewer/more timesteps)?
 - **Exploration/exploitation**: did it keep “random-looking” behavior too long or stop exploring too early?
